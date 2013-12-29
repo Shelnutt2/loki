@@ -18,6 +18,11 @@ LOCAL_MODULE := loki_find
 include $(BUILD_HOST_EXECUTABLE)
 
 include $(CLEAR_VARS)
+LOCAL_SRC_FILES := loki_check.c
+LOCAL_MODULE := loki_check
+include $(BUILD_HOST_EXECUTABLE)
+
+include $(CLEAR_VARS)
 LOCAL_SRC_FILES := loki_flash.c
 LOCAL_STATIC_LIBRARIES := libc
 LOCAL_MODULE := utility_loki_flash
@@ -35,6 +40,18 @@ LOCAL_STATIC_LIBRARIES := libc
 LOCAL_MODULE := utility_loki_patch
 LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE_STEM := loki_patch
+LOCAL_MODULE_CLASS := UTILITY_EXECUTABLES
+LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/utilities
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
+LOCAL_FORCE_STATIC_EXECUTABLE := true
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := loki_check.c
+LOCAL_STATIC_LIBRARIES := libc
+LOCAL_MODULE := utility_loki_check
+LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE_STEM := loki_check
 LOCAL_MODULE_CLASS := UTILITY_EXECUTABLES
 LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/utilities
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
